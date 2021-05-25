@@ -7,10 +7,7 @@ class GitApi extends Component{
         this.state = {
             repositories : [],
             pesquisa : '',
-            name : '',
-            description : '',
-            created_at : '',
-            size : ''
+            name : ''
         }
     }
 
@@ -25,7 +22,7 @@ class GitApi extends Component{
 
         event.preventDefault();
 
-        fetch('https://api.github.com/users/'+ this.state.pesquisa +'/repos')
+        fetch('https://api.github.com/users/'+ this.state.pesquisa +'/repos?sort=created&per_page=1')
 
         .then(reposta => reposta.json())
 
